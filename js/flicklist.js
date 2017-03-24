@@ -51,17 +51,17 @@ function render() {
   // TODO 6
   // for each movie on the user's watchlist, insert a list item into the <ul> in the watchlist section
     model.watchlistItems.forEach(function(movie) {
-      	var itemView = $("<li></li>").text(movie.original_title);
-    	$("#section-watchlist ul").append(itemView);
+      	var itemList = $("<li></li>").text(movie.original_title);
+    	$("#section-watchlist ul").append(itemList);
     });
   // for each movie on the current browse list,
   model.browseItems.forEach(function(movie) {
 		// TODO 3
 		// insert a list item into the <ul> in the browse section
         var title = $("<p></p>").text(movie.original_title);
-        var itemView = $("<li></li>").append(title);
+        var itemList = $("<li></li>").append(title);
 
-        $("#section-browse ul").append(itemView);
+        $("#section-browse ul").append(itemList);
 
 		// TODO 4
 		// the list item should include a button that says "Add to Watchlist"
@@ -69,7 +69,7 @@ function render() {
 			model.watchlistItems.push(movie);
 			render();
 		});
-		itemView.append(button);
+		itemList.append(button);
   });
 
 }
